@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flypers/models/categoriesScreenWallpaperModel.dart';
+import 'package:flypers/models/artworkWallpaperModel.dart';
 import 'package:flypers/widgets/appColors.dart';
 import 'package:material_segmented_control/material_segmented_control.dart';
 
@@ -19,15 +19,22 @@ class _MyScreenState extends State<MyScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                ArtworkWallpaperModel(),
                 SizedBox(height: 16.h),
-                CategoriesScreenWallpaperModel(),
               ],
             ),
           ),
         );
       case 1:
-        return Center(
-          child: Text('Tab 2 content'),
+        return Container(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                ArtworkWallpaperModel(),
+                SizedBox(height: 16.h),
+              ],
+            ),
+          ),
         );
 
       default:
@@ -59,9 +66,8 @@ class _MyScreenState extends State<MyScreen> {
               },
             ),
           ),
-          Expanded(
-            child: _buildTabContent(_currentSelection),
-          ),
+          SizedBox(height: 16.h),
+          Expanded(child: _buildTabContent(_currentSelection)),
         ],
       ),
     );

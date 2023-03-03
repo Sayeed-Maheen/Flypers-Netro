@@ -50,7 +50,7 @@ class _ArtWorkScreenState extends State<ArtWorkScreen> {
                       color: AppColors.colorTextMainBlack),
                 ),
                 SizedBox(height: 16.h),
-                Expanded(child: MyScreen())
+                Expanded(child: MyScreen()),
               ],
             )),
       ),

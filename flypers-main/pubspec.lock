@@ -78,6 +78,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_glow:
+    dependency: "direct main"
+    description:
+      name: flutter_glow
+      sha256: b69b6306f87b496d34da7f0b88b41b324cb75255516f1f6913321e463eb66b31
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.0"
   flutter_screenutil:
     dependency: "direct main"
     description:

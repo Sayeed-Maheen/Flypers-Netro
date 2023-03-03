@@ -20,13 +20,19 @@ class CategoriesColorModel extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: items.length,
         shrinkWrap: true,
+        padding: EdgeInsets.only(right: 8),
         itemBuilder: (context, index) {
-          return Container(
-            height: 60.h,
-            width: 60.w,
-            child: CircleAvatar(
-              backgroundColor: colors[index % colors.length],
-            ),
+          return Row(
+            children: [
+              Container(
+                height: 60.h,
+                width: 60.w,
+                child: CircleAvatar(
+                  backgroundColor: colors[index % colors.length],
+                ),
+              ),
+              SizedBox(width: 8.w)
+            ],
           );
         },
       ),
