@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../widgets/appColors.dart';
-
+import 'package:flutter_svg/svg.dart';
+import 'package:flypers/models/TrendingWallpaperModel.dart';
+import 'package:flypers/widgets/appColors.dart';
 
 class TrendingScreen extends StatelessWidget {
   const TrendingScreen({Key? key}) : super(key: key);
@@ -10,26 +10,35 @@ class TrendingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(
-          "Trending Screen",
-          style: TextStyle(
-            fontSize: 12.sp,
-            fontWeight: FontWeight.w600,
-            color: AppColors.colorPrimary,
+        body: Container(
+      child: Stack(children: [
+        TrendingWallpaperModel(),
+        Positioned(
+            top: 57.h,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                "Trending",
+                style: TextStyle(
+                    fontSize: 32.sp,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.colorWhite),
+              ),
+            )),
+        Padding(
+          padding: const EdgeInsets.only(top: 58, right: 16),
+          child: Align(
+            alignment: Alignment.topRight,
+            child: Positioned(
+              child: SvgPicture.asset(
+                "assets/images/download.svg",
+                height: 48.h,
+                width: 48.w,
+              ),
+            ),
           ),
-        ),
-      ),
-
-
-
-
-
-
-
-
-
-
-    );
+        )
+      ]),
+    ));
   }
 }

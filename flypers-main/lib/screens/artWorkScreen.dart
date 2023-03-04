@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flypers/models/tabBarModel.dart';
 import 'package:flypers/widgets/appColors.dart';
-import 'package:flypers/widgets/tabBar.dart';
 
 class ArtWorkScreen extends StatefulWidget {
   const ArtWorkScreen({Key? key}) : super(key: key);
@@ -50,7 +50,7 @@ class _ArtWorkScreenState extends State<ArtWorkScreen> {
                       color: AppColors.colorTextMainBlack),
                 ),
                 SizedBox(height: 16.h),
-                Expanded(child: MyScreen()),
+                Expanded(child: TabbarModel()),
               ],
             )),
       ),

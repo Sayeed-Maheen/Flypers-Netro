@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flypers/models/artworkWallpaperModel.dart';
+import 'package:flypers/screens/artworkScreen2.dart';
 import 'package:flypers/widgets/appColors.dart';
 import 'package:material_segmented_control/material_segmented_control.dart';
 
-class MyScreen extends StatefulWidget {
+class TabbarModel extends StatefulWidget {
   @override
-  _MyScreenState createState() => _MyScreenState();
+  _TabbarModelState createState() => _TabbarModelState();
 }
 
-class _MyScreenState extends State<MyScreen> {
+class _TabbarModelState extends State<TabbarModel> {
   int _currentSelection = 0;
 
   Widget _buildTabContent(int tabIndex) {
@@ -19,7 +20,14 @@ class _MyScreenState extends State<MyScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                ArtworkWallpaperModel(),
+                InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ArtworkScreen2()));
+                    },
+                    child: ArtworkWallpaperModel()),
                 SizedBox(height: 16.h),
               ],
             ),
@@ -30,7 +38,14 @@ class _MyScreenState extends State<MyScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                ArtworkWallpaperModel(),
+                InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ArtworkScreen2()));
+                    },
+                    child: ArtworkWallpaperModel()),
                 SizedBox(height: 16.h),
               ],
             ),
