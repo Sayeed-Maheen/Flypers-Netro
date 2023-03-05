@@ -41,7 +41,7 @@ class _ArtworkChipsModelState extends State<ArtworkChipsModel> {
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Padding(
-          padding: const EdgeInsets.only(right: 16),
+          padding: const EdgeInsets.only(right: 16, left: 16),
           child: Row(
             children: [
               Wrap(

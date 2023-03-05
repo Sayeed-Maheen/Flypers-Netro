@@ -71,6 +71,12 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                       icon: Icons.local_fire_department_outlined,
                     ),
                     GButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SettingScreen()));
+                      },
                       icon: Icons.settings_outlined,
                     ),
                   ],

@@ -215,10 +215,7 @@ class _ArtworkScreen2State extends State<ArtworkScreen2> {
             SizedBox(height: 20.h),
             ArtworkScreen2WallpaperModel(key: null),
             SizedBox(height: 16.h),
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: ArtworkChipsModel(),
-            ),
+            ArtworkChipsModel(),
             SizedBox(height: 20.h),
             Center(
               child: Container(
@@ -230,20 +227,19 @@ class _ArtworkScreen2State extends State<ArtworkScreen2> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Icon(
-                      Icons.format_paint,
-                      color: AppColors.colorWhite,
-                    ),
                     InkWell(
                       onTap: () {
                         _showBottomSheet(context);
                       },
-                      child: Container(
-                          height: 40.h,
-                          width: 40.w,
-                          child:
-                              SvgPicture.asset("assets/images/download.svg")),
+                      child: Icon(
+                        Icons.format_paint,
+                        color: AppColors.colorWhite,
+                      ),
                     ),
+                    Container(
+                        height: 40.h,
+                        width: 40.w,
+                        child: SvgPicture.asset("assets/images/download.svg")),
                     Icon(
                       Icons.more_horiz_rounded,
                       color: AppColors.colorWhite,

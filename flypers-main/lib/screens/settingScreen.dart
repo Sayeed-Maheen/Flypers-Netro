@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flypers/screens/privacyPolicyScreen.dart';
 
 import '../widgets/appColors.dart';
 import 'mainHomeScreen.dart';
@@ -13,6 +14,7 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   bool isSwitched = false;
+  bool isSwitched1 = false;
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -28,11 +30,21 @@ class _SettingScreenState extends State<SettingScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 57.h),
+                SizedBox(height: 40.h),
+                InkWell(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MainHomeScreen()));
+                    },
+                    child: Icon(Icons.arrow_back,
+                        color: AppColors.colorBlack, size: 30)),
+                SizedBox(height: 24.h),
                 Text(
                   "Settings",
                   style: TextStyle(
-                    fontSize: 32.sp,
+                    fontSize: 24.sp,
                     fontWeight: FontWeight.w600,
                     color: AppColors.colorBlack,
                   ),
@@ -117,10 +129,10 @@ class _SettingScreenState extends State<SettingScreen> {
                       ],
                     ),
                     Switch(
-                      value: isSwitched,
+                      value: isSwitched1,
                       onChanged: (value) {
                         setState(() {
-                          isSwitched = value;
+                          isSwitched1 = value;
                         });
                       },
                     )
@@ -129,19 +141,31 @@ class _SettingScreenState extends State<SettingScreen> {
                 SizedBox(height: 24.h),
                 Divider(height: 1),
                 SizedBox(height: 24.h),
-                Row(
-                  children: [
-                    Icon(Icons.policy),
-                    SizedBox(width: 12.w),
-                    Text(
-                      "Privacy policy",
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.colorTextMainBlack,
-                      ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PrivacyPolicyScreen()));
+                  },
+                  child: Container(
+                    height: 25.h,
+                    width: double.infinity,
+                    child: Row(
+                      children: [
+                        Icon(Icons.policy),
+                        SizedBox(width: 12.w),
+                        Text(
+                          "Privacy policy",
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.colorTextMainBlack,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               ],
             ),

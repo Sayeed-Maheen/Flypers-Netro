@@ -44,7 +44,7 @@ class _HomePageCarouselModelState extends State<HomePageCarouselModel> {
                     width: double.infinity,
                     child: Image.asset(
                       images[index % images.length],
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   ),
                 );
