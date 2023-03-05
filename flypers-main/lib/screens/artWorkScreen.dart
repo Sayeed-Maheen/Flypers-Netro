@@ -4,15 +4,26 @@ import 'package:flypers/models/tabBarModel.dart';
 import 'package:flypers/widgets/appColors.dart';
 
 class ArtWorkScreen extends StatefulWidget {
-  const ArtWorkScreen({Key? key}) : super(key: key);
+  final String data;
+  ArtWorkScreen({Key? key, required this.data}) : super(key: key);
 
   @override
   State<ArtWorkScreen> createState() => _ArtWorkScreenState();
 }
 
 class _ArtWorkScreenState extends State<ArtWorkScreen> {
+  String value = '';
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    value = widget.data;
+  }
+
   @override
   Widget build(BuildContext context) {
+    print(value);
     return Scaffold(
       backgroundColor: AppColors.colorWhite,
       appBar: AppBar(
@@ -43,7 +54,7 @@ class _ArtWorkScreenState extends State<ArtWorkScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Artworks",
+                  value,
                   style: TextStyle(
                       fontSize: 24.sp,
                       fontWeight: FontWeight.w400,

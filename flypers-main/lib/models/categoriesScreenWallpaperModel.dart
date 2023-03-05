@@ -37,16 +37,16 @@ class _CategoriesScreenWallpaperModelState
     "Cars",
     "Cartoon",
     "Dark",
-    "Minimal",
-    "Space",
+    "Game",
+    "Anime",
     "Artworks",
     "Bike",
     "Blurred",
     "Cars",
     "Cartoon",
     "Dark",
-    "Minimal",
-    "Space",
+    "Game",
+    "Anime",
   ];
   @override
   Widget build(BuildContext context) {
@@ -65,8 +65,14 @@ class _CategoriesScreenWallpaperModelState
           itemBuilder: (BuildContext context, int index) {
             return InkWell(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ArtWorkScreen()));
+                String text = titles.elementAt(index);
+                print(text);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ArtWorkScreen(
+                              data: text,
+                            )));
               },
               child: Container(
                 decoration: BoxDecoration(

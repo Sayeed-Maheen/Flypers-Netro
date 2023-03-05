@@ -140,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
             actions: [
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: Icon(Icons.search),
+                child: GestureDetector(onTap: () {}, child: Icon(Icons.search)),
               ),
             ],
             elevation: 0),

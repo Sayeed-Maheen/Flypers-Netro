@@ -41,7 +41,7 @@ class _ArtworkScreen2WallpaperModelState
       options: CarouselOptions(
         enlargeCenterPage: true,
         aspectRatio: 11.w / 14.h,
-        viewportFraction: 0.74.w,
+        viewportFraction: 0.7.w,
         enlargeStrategy: CenterPageEnlargeStrategy.zoom,
         onPageChanged: (index, reason) {
           setState(() {

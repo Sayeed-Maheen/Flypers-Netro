@@ -18,15 +18,11 @@ class _ArtworkChipsModelState extends State<ArtworkChipsModel> {
     "Tag3",
     "Tag4",
   ];
-  List<String> _selectedData = [];
+  String? _selectedData;
 
-  _onSelected(bool selected, String data) {
+  _onSelected(String data) {
     setState(() {
-      if (selected) {
-        _selectedData.add(data);
-      } else {
-        _selectedData.remove(data);
-      }
+      _selectedData = data;
     });
   }
 
@@ -49,19 +45,20 @@ class _ArtworkChipsModelState extends State<ArtworkChipsModel> {
                 children: _data.map((data) {
                   return FilterChip(
                     showCheckmark: false,
-                    backgroundColor: AppColors.colorWhite,
+                    backgroundColor: _selectedData == data
+                        ? AppColors.colorPrimary
+                        : AppColors.colorWhite,
                     label: Text(
                       data,
-                      style: _selectedData.contains(data)
+                      style: _selectedData == data
                           ? _selectedStyle
                           : TextStyle(color: AppColors.colorBlackMidEmp),
                     ),
                     shape: StadiumBorder(
-                        side: BorderSide(color: AppColors.colorWhiteLowEmp)),
-                    selected: _selectedData.contains(data),
-                    selectedColor: AppColors.colorPrimary,
+                      side: BorderSide(color: AppColors.colorWhiteLowEmp),
+                    ),
                     padding: EdgeInsets.all(5),
-                    onSelected: (selected) => _onSelected(selected, data),
+                    onSelected: (_) => _onSelected(data),
                   );
                 }).toList(),
               ),
