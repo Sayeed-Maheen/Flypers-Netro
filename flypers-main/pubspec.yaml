@@ -44,6 +44,8 @@ dependencies:
   material_segmented_control: ^4.2.0
   flutter_glow: ^0.2.0
   carousel_slider: ^4.2.1
+  fluttertoast: ^8.2.1
+  full_screen_image_null_safe: ^2.0.0
 
 dev_dependencies:
   flutter_test:

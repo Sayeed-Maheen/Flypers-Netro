@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../screens/artworkScreen2.dart';
+
 class RecentlyUpdatedModel extends StatefulWidget {
   const RecentlyUpdatedModel({Key? key}) : super(key: key);
 
@@ -50,10 +52,16 @@ class _RecentlyUpdatedModelState extends State<RecentlyUpdatedModel> {
               mainAxisSpacing: 14),
           itemCount: _imageUrls.length,
           itemBuilder: (BuildContext context, int index) {
-            return Image.asset(
-              _imageUrls[index],
-              height: 209.h,
-              width: 158.w,
+            return InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ArtworkScreen2()));
+              },
+              child: Image.asset(
+                _imageUrls[index],
+                height: 209.h,
+                width: 158.w,
+              ),
             );
           },
         ),

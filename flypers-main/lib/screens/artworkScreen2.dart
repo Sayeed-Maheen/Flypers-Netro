@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flypers/models/artworkChipsModel.dart';
 import 'package:flypers/models/artworkScreen2WallpaperModel.dart';
 
@@ -172,12 +173,12 @@ class _ArtworkScreen2State extends State<ArtworkScreen2> {
             highlightColor: Colors.transparent,
             hoverColor: Colors.transparent,
           ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Icon(Icons.search, color: AppColors.colorBlack),
-            ),
-          ],
+          // actions: [
+          //   Padding(
+          //     padding: const EdgeInsets.all(10),
+          //     child: Icon(Icons.search, color: AppColors.colorBlack),
+          //   ),
+          // ],
           elevation: 0),
       body: Container(
         child: Column(
@@ -236,10 +237,21 @@ class _ArtworkScreen2State extends State<ArtworkScreen2> {
                         color: AppColors.colorWhite,
                       ),
                     ),
-                    Container(
-                        height: 40.h,
-                        width: 40.w,
-                        child: SvgPicture.asset("assets/images/download.svg")),
+                    InkWell(
+                      onTap: () {
+                        Fluttertoast.showToast(
+                          msg: 'Wallpaper downloaded',
+                          gravity: ToastGravity.BOTTOM,
+                          backgroundColor: Colors.grey[700],
+                          textColor: Colors.white,
+                        );
+                      },
+                      child: Container(
+                          height: 40.h,
+                          width: 40.w,
+                          child:
+                              SvgPicture.asset("assets/images/download.svg")),
+                    ),
                     Icon(
                       Icons.more_horiz_rounded,
                       color: AppColors.colorWhite,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flypers/screens/animeScreen.dart';
 
 import '../widgets/appColors.dart';
 
@@ -24,6 +25,11 @@ class _ArtworkChipsModelState extends State<ArtworkChipsModel> {
     setState(() {
       _selectedData = data;
     });
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => AnimeScreen(),
+      ),
+    );
   }
 
   TextStyle _selectedStyle = TextStyle(

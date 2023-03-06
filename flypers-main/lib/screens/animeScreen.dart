@@ -4,27 +4,18 @@ import 'package:flypers/models/searchBarModel.dart';
 import 'package:flypers/models/tabBarModel.dart';
 import 'package:flypers/widgets/appColors.dart';
 
-class ArtWorkScreen extends StatefulWidget {
-  final String data;
-  ArtWorkScreen({Key? key, required this.data}) : super(key: key);
+class AnimeScreen extends StatefulWidget {
+  AnimeScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<ArtWorkScreen> createState() => _ArtWorkScreenState();
+  State<AnimeScreen> createState() => _AnimeScreenState();
 }
 
-class _ArtWorkScreenState extends State<ArtWorkScreen> {
-  String value = '';
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    value = widget.data;
-  }
-
+class _AnimeScreenState extends State<AnimeScreen> {
   @override
   Widget build(BuildContext context) {
-    print(value);
     return Scaffold(
       backgroundColor: AppColors.colorWhite,
       appBar: AppBar(
@@ -55,7 +46,7 @@ class _ArtWorkScreenState extends State<ArtWorkScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  value,
+                  "Anime",
                   style: TextStyle(
                       fontSize: 24.sp,
                       fontWeight: FontWeight.w400,

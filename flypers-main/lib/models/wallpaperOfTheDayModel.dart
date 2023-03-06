@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flypers/screens/artworkScreen2.dart';
 
 class WallpaperOfTheDayModel extends StatefulWidget {
   const WallpaperOfTheDayModel({Key? key}) : super(key: key);
@@ -30,10 +31,16 @@ class _WallpaperOfTheDayModelState extends State<WallpaperOfTheDayModel> {
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.only(left: 16),
-            child: Image.asset(
-              _imageUrls[index],
-              height: 73.h,
-              width: 119.w,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ArtworkScreen2()));
+              },
+              child: Image.asset(
+                _imageUrls[index],
+                height: 73.h,
+                width: 119.w,
+              ),
             ),
           );
         },

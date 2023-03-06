@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flypers/models/categoriesColorModel.dart';
 import 'package:flypers/models/categoriesScreenWallpaperModel.dart';
+import 'package:flypers/models/searchBarModel.dart';
 import 'package:flypers/screens/settingScreen.dart';
 
 import '../widgets/appColors.dart';
@@ -117,7 +118,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             actions: [
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: Icon(Icons.search, color: AppColors.colorBlack),
+                child: SearchBarModel(),
               ),
             ],
             elevation: 0),

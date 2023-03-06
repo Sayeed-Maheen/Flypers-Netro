@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flypers/models/homePageCarouselModel.dart';
+import 'package:flypers/models/homeScreenSearchBarModel.dart';
 import 'package:flypers/models/recentlyUpdatedModel.dart';
 import 'package:flypers/models/wallpaperOfTheDayModel.dart';
+import 'package:flypers/screens/recentlyUpdatedScreen.dart';
 import 'package:flypers/screens/settingScreen.dart';
+import 'package:flypers/screens/wallpaperOfTheDayScreen.dart';
 
 import '../widgets/appColors.dart';
 
@@ -140,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
             actions: [
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: GestureDetector(onTap: () {}, child: Icon(Icons.search)),
+                child: HomeScreenSearchBarModel(),
               ),
             ],
             elevation: 0),
@@ -171,23 +174,32 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: AppColors.colorTextMainBlack,
                         ),
                       ),
-                      Row(
-                        children: [
-                          Text(
-                            "See all",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14.sp,
-                              color: AppColors.colorPrimary,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      WallpaperOfTheDayScreen()));
+                        },
+                        child: Row(
+                          children: [
+                            Text(
+                              "See all",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14.sp,
+                                color: AppColors.colorPrimary,
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 8.h),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            color: AppColors.colorPrimary,
-                            size: 16,
-                          )
-                        ],
+                            SizedBox(width: 8.h),
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              color: AppColors.colorPrimary,
+                              size: 16,
+                            )
+                          ],
+                        ),
                       )
                     ],
                   ),
@@ -209,23 +221,32 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: AppColors.colorTextMainBlack,
                         ),
                       ),
-                      Row(
-                        children: [
-                          Text(
-                            "See all",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14.sp,
-                              color: AppColors.colorPrimary,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      RecentlyUpdatedScreen()));
+                        },
+                        child: Row(
+                          children: [
+                            Text(
+                              "See all",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14.sp,
+                                color: AppColors.colorPrimary,
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 8.h),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            color: AppColors.colorPrimary,
-                            size: 16,
-                          )
-                        ],
+                            SizedBox(width: 8.h),
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              color: AppColors.colorPrimary,
+                              size: 16,
+                            )
+                          ],
+                        ),
                       )
                     ],
                   ),
@@ -240,4 +261,56 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+// class MySearchDelegate extends MySearchDelegate{
+//   @override
+//   Widget? buildLeading (BuildContext context)=>IconButton(
+//   onPressed: ()=>close(context,null),
+//   icon: Icon(Icons.arrow_back),
+//   );
+//
+//   @override
+//   List<Widget>? buildActions (BuildContext context)=>[IconButton(
+//   onPressed: (){
+//   if ( query .isEmpty ) {
+//   close(context,null);
+//
+//   } else {
+//   query ="";
+//   }},
+//   icon: Icon(Icons.clear),
+//   )];
+//
+//
+//   @override
+//   Widget? buildResult (BuildContext context)=>Center(child: Text(query, style: TextStyle(
+//   fontSize: 50
+//   )),);
+//   @override
+//   Widget? buildSuggetions (BuildContext context){
+//   List<String> suggestions = [
+//   "Brazil"
+//   "Argentina"
+//   "Bangladesh"
+//   "Turkey"
+//   ];
+//   List<String> sugges
+//
+//   return ListView. builder(
+//   itemCount: suggestions. length,
+//   itemBuilder: (context, index) {
+//   final suggetion = suggestions [index] ;
+//
+//   return ListTile(
+//   title: Text (suggestion),
+//   onTap: ( ) {
+// query = suggetion;
+//
+//   showResults(context);
+//
+//   });
+//
+//   });
+//   }
+//
+//   }
 }

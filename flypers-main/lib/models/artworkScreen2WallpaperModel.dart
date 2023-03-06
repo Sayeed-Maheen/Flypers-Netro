@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:full_screen_image_null_safe/full_screen_image_null_safe.dart';
 
 class ArtworkScreen2WallpaperModel extends StatefulWidget {
   const ArtworkScreen2WallpaperModel({required key}) : super(key: key);
@@ -24,11 +25,13 @@ class _ArtworkScreen2WallpaperModelState
     return images
         .map((element) => ClipRRect(
               borderRadius: BorderRadius.circular(20.0),
-              child: Image.asset(
-                element,
-                fit: BoxFit.cover,
-                height: _imageHeight,
-                width: _imageWidth,
+              child: FullScreenWidget(
+                child: Image.asset(
+                  element,
+                  fit: BoxFit.cover,
+                  height: _imageHeight,
+                  width: _imageWidth,
+                ),
               ),
             ))
         .toList();

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flypers/widgets/appColors.dart';
@@ -19,6 +21,26 @@ class _HomePageCarouselModelState extends State<HomePageCarouselModel> {
 
   int currentIndex = 0;
   final PageController controller = PageController();
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(Duration(seconds: 2), (timer) {
+      if (currentIndex == images.length - 1) {
+        currentIndex = 0;
+        controller.animateToPage(
+          currentIndex,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        );
+      } else {
+        currentIndex++;
+        controller.nextPage(
+          duration: Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

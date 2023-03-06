@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flypers/widgets/appColors.dart';
 
-class SearchBarModel extends StatefulWidget {
-  const SearchBarModel({Key? key}) : super(key: key);
+class HomeScreenSearchBarModel extends StatefulWidget {
+  const HomeScreenSearchBarModel({Key? key}) : super(key: key);
 
   @override
-  State<SearchBarModel> createState() => _SearchBarModelState();
+  State<HomeScreenSearchBarModel> createState() =>
+      _HomeScreenSearchBarModelState();
 }
 
-class _SearchBarModelState extends State<SearchBarModel> {
+class _HomeScreenSearchBarModelState extends State<HomeScreenSearchBarModel> {
   bool _expanded = false;
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class _SearchBarModelState extends State<SearchBarModel> {
       height: 70.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(33),
-        color: AppColors.colorWhite,
+        color: AppColors.colorPrimary,
       ),
       child: Row(
         children: [
@@ -33,7 +34,6 @@ class _SearchBarModelState extends State<SearchBarModel> {
               },
               icon: Icon(
                 _expanded ? Icons.close : Icons.search,
-                color: AppColors.colorBlack,
               ),
             ),
           ),
@@ -41,10 +41,10 @@ class _SearchBarModelState extends State<SearchBarModel> {
               child: Container(
             child: _expanded
                 ? const TextField(
-                    cursorColor: AppColors.colorBlack,
+                    cursorColor: AppColors.colorWhite,
                     decoration: InputDecoration(
                         hintText: 'Search',
-                        hintStyle: TextStyle(color: AppColors.colorBlack),
+                        hintStyle: TextStyle(color: AppColors.colorWhite),
                         contentPadding: EdgeInsets.fromLTRB(10, 8, 20, 10),
                         border: InputBorder.none),
                   )
