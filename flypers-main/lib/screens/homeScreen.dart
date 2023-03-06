@@ -94,6 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
         });
   }
 
+  String screenName = "";
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -107,8 +108,13 @@ class _HomeScreenState extends State<HomeScreen> {
             centerTitle: true,
             leading: IconButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SettingScreen()));
+                String text = screenName.toString();
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SettingScreen(
+                              screenName: 'fromHome',
+                            )));
               },
               icon: Icon(
                 Icons.menu,

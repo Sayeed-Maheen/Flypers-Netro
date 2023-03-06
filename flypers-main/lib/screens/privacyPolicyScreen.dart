@@ -24,7 +24,9 @@ class PrivacyPolicyScreen extends StatelessWidget {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SettingScreen()));
+                              builder: (context) => SettingScreen(
+                                    screenName: '',
+                                  )));
                     },
                     child: Icon(Icons.arrow_back,
                         color: AppColors.colorBlack, size: 30)),

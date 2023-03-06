@@ -9,6 +9,8 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'homeScreen.dart';
 
 class MainHomeScreen extends StatefulWidget {
+  final int value;
+  const MainHomeScreen({Key? key, required this.value}) : super(key: key);
   @override
   _MainHomeScreenState createState() => _MainHomeScreenState();
 }
@@ -16,15 +18,24 @@ class MainHomeScreen extends StatefulWidget {
 class _MainHomeScreenState extends State<MainHomeScreen> {
   int _selectedIndex = 0;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _selectedIndex = widget.value;
+  }
+
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     CategoriesScreen(),
     TrendingScreen(),
-    SettingScreen(),
+    SettingScreen(
+      screenName: '',
+    ),
   ];
-
+  String screenName = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,10 +83,13 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                     ),
                     GButton(
                       onPressed: () {
-                        Navigator.push(
+                        String text = screenName.toString();
+                        Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SettingScreen()));
+                                builder: (context) => SettingScreen(
+                                      screenName: 'fromSettings',
+                                    )));
                       },
                       icon: Icons.settings_outlined,
                     ),

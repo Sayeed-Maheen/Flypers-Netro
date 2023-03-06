@@ -91,6 +91,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         });
   }
 
+  String screenName = "";
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -104,8 +106,13 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             backgroundColor: AppColors.colorWhite,
             leading: IconButton(
               onPressed: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => SettingScreen()));
+                String text = screenName.toString();
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SettingScreen(
+                              screenName: 'fromCategories',
+                            )));
               },
               icon: Icon(
                 Icons.menu,
@@ -140,10 +147,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   ),
                 ),
                 SizedBox(height: 12.h),
-                Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: CategoriesColorModel(),
-                ),
+                CategoriesColorModel(),
                 SizedBox(height: 20.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),

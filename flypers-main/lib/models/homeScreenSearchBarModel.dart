@@ -35,6 +35,9 @@ class _HomeScreenSearchBarModelState extends State<HomeScreenSearchBarModel> {
               icon: Icon(
                 _expanded ? Icons.close : Icons.search,
               ),
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              hoverColor: Colors.transparent,
             ),
           ),
           Expanded(

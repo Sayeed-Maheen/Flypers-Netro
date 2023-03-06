@@ -82,7 +82,9 @@ class OnboardingScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => MainHomeScreen()));
+                          builder: (context) => MainHomeScreen(
+                                value: 0,
+                              )));
                 },
                 text: "Accept and Continue")
           ],

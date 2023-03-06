@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:full_screen_image_null_safe/full_screen_image_null_safe.dart';
+import 'package:flypers/screens/artworkWallpaperScreen.dart';
 
 class ArtworkScreen2WallpaperModel extends StatefulWidget {
   const ArtworkScreen2WallpaperModel({required key}) : super(key: key);
@@ -25,7 +25,15 @@ class _ArtworkScreen2WallpaperModelState
     return images
         .map((element) => ClipRRect(
               borderRadius: BorderRadius.circular(20.0),
-              child: FullScreenWidget(
+              child: InkWell(
+                onTap: () {
+                  String photo = images.elementAt(_current);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              ArtworkWallpaperScreen(imageData: photo)));
+                },
                 child: Image.asset(
                   element,
                   fit: BoxFit.cover,

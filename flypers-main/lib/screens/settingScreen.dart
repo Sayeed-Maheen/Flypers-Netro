@@ -6,7 +6,9 @@ import '../widgets/appColors.dart';
 import 'mainHomeScreen.dart';
 
 class SettingScreen extends StatefulWidget {
-  const SettingScreen({Key? key}) : super(key: key);
+  final String screenName;
+
+  const SettingScreen({Key? key, required this.screenName}) : super(key: key);
 
   @override
   State<SettingScreen> createState() => _SettingScreenState();
@@ -15,12 +17,42 @@ class SettingScreen extends StatefulWidget {
 class _SettingScreenState extends State<SettingScreen> {
   bool isSwitched = false;
   bool isSwitched1 = false;
+  String nameValue = '';
+  final int value = 0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    nameValue = widget.screenName;
+  }
+
   @override
   Widget build(BuildContext context) {
+    print(nameValue);
     return WillPopScope(
       onWillPop: () async {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => MainHomeScreen()));
+        if (nameValue == "fromHome") {
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => MainHomeScreen(
+                        value: 0,
+                      )));
+        } else if (nameValue == "fromSettings") {
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => MainHomeScreen(
+                        value: 0,
+                      )));
+        } else if (nameValue == "fromCategories") {
+          print("fromCategories");
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => MainHomeScreen(value: 1)));
+        }
         return false;
       },
       child: Scaffold(
@@ -33,10 +65,34 @@ class _SettingScreenState extends State<SettingScreen> {
                 SizedBox(height: 40.h),
                 InkWell(
                     onTap: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MainHomeScreen()));
+                      if (nameValue == "fromHome") {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MainHomeScreen(
+                                      value: 0,
+                                    )));
+                      } else if (nameValue == "fromSettings") {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MainHomeScreen(
+                                      value: 0,
+                                    )));
+                      } else if (nameValue == "fromCategories") {
+                        print("fromCategories");
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    MainHomeScreen(value: 1)));
+                      }
+                      // Navigator.pushReplacement(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => MainHomeScreen(
+                      //               value: 0,
+                      //             )));
                     },
                     child: Icon(Icons.arrow_back,
                         color: AppColors.colorBlack, size: 30)),

@@ -20,7 +20,7 @@ class CategoriesColorModel extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: items.length,
         shrinkWrap: true,
-        padding: EdgeInsets.only(right: 8),
+        padding: EdgeInsets.only(left: 16, right: 16),
         itemBuilder: (context, index) {
           return Row(
             children: [
